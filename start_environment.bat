@@ -1,9 +1,7 @@
-REM set CONDA_PATH=c:\conda\scripts
-REM set ENVS_PATH=..\..\conda
 
 set project_name=metal_detector
 
-REM call %ENVS_PATH%\fix_connection_problem.bat
+set path=%path%;%GCC_HOME_ARM%
 
 call conda env update --file %project_name%.yml --prune
 
