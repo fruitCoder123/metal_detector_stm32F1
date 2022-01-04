@@ -1,0 +1,1 @@
+start /wait /b conda.bat activate metal_detector

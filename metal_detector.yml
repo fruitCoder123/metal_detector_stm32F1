@@ -1,0 +1,6 @@
+name: metal_detector
+channels:
+  - conda-forge
+dependencies:
+  - cmake
+  - ninja
