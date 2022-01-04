@@ -1,0 +1,14 @@
+
+STMCubeMX download: 
+===================
+https://www.st.com/en/development-tools/stm32cubemx.html#overview&secondary=st-get-software
+
+GCC for ARM: 
+============
+https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads
+(I donwloaded gcc-arm-none-eabi-10.3-2021.10-win32.zip)
+
+Conda install:
+==============
+https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html
+
