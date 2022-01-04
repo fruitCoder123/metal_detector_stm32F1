@@ -12,3 +12,11 @@ Conda install:
 ==============
 https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html
 
+Git install:
+============
+https://git-scm.com/downloads
+
+Test ssh key with github:
+=========================
+https://docs.github.com/en/authentication/connecting-to-github-with-ssh/testing-your-ssh-connection
+
