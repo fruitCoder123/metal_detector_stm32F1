@@ -1,21 +1,34 @@
 
 cmake_minimum_required(VERSION 3.0)
 
-project(metal_detector_${CMAKE_BUILD_TYPE} C)
-
-add_definitions(-DSTM32F103)
+project(metal_detector_${CMAKE_BUILD_TYPE} C ASM)
 
 include_directories(software/headers)
 
 # set output folder to put the build output
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/../../../bin/${CMAKE_BUILD_TYPE})
 
+include_directories(stmcubemx/inc)
+include_directories(stmcubemx/Drivers/CMSIS/Device/ST/STM32F1xx/Include)
+include_directories(stmcubemx/Drivers/CMSIS/Include)
+include_directories(stmcubemx/Drivers/STM32F1xx_HAL_Driver/Inc)
 
 set (headers
+    stmcubemx/inc/main.h
+    stmcubemx/inc/stm32f1xx_hal_conf.h
+    stmcubemx/inc/stm32f1xx_it.h
 )
 
 set (sources
-    software/sources/main.c
+    stmcubemx/src/main.c
+    stmcubemx/src/stm32f1xx_hal_msp.c
+    stmcubemx/src/stm32f1xx_it.c
+    stmcubemx/src/system_stm32f1xx.c
+    stmcubemx/startup_stm32f103xb.s
+    stmcubemx/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c
+    stmcubemx/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c
+    stmcubemx/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c
+    stmcubemx/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c
 )
 
 if(CMAKE_BUILD_TYPE MATCHES "Debug")
@@ -38,8 +51,14 @@ else()
     Message(FATAL_ERROR "Building for: UNKNOWN - specify build type correctly!")
 endif()
 
+add_compile_definitions(USE_HAL_DRIVER)
+add_compile_definitions(STM32F103xB)
+
+set(LINKER_FILE ${CMAKE_SOURCE_DIR}/stmcubemx/STM32F103C8Tx_FLASH.ld)
+
 add_executable(${PROJECT_NAME} ${sources} ${headers})
-set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME ${PROJECT_NAME}.hex)
+set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME ${PROJECT_NAME}.elf)
+set_target_properties(${PROJECT_NAME} PROPERTIES LINK_FLAGS "-T ${LINKER_FILE}")
 
 # Create ctags file
 find_program(CTAGS_PATH ctags)

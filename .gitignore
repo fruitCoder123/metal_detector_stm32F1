@@ -1,3 +1,9 @@
 build/*
 bin/*
 tags
+stmcubemx/Drivers/*
+stmcubemx/Inc/*
+stmcubemx/Src/*
+stmcubemx/.mxproject
+stmcubemx/Makefile
+stmcubemx/startup_stm32f103xb.s

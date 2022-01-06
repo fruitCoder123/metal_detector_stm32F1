@@ -58,8 +58,9 @@ string( REPLACE ";" " " CXX_FLAGS_DEBUG "${CXX_FLAGS_DEBUG}" )
 
 SET(LINK_FLAGS
   "-specs=nosys.specs"
-#  "-specs=nano.specs"
   "-mfloat-abi=softfp"
+  "-Wl,--gc-sections"   # dead code elimination
+
 )
 string( REPLACE ";" " " LINK_FLAGS "${LINK_FLAGS}" )
 
