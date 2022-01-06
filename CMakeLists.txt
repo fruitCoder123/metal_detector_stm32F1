@@ -20,7 +20,7 @@ set (headers
 )
 
 set (sources
-    stmcubemx/src/main.c
+    software/sources/main.c
     stmcubemx/src/stm32f1xx_hal_msp.c
     stmcubemx/src/stm32f1xx_it.c
     stmcubemx/src/system_stm32f1xx.c
