@@ -1,0 +1,10 @@
++ position (PCB mask) = Vcc = 1
+- position (PCB mask) = Gnd = 0
+
+
+B1  B0  Bootmode
+====================
+x   0   main flash memory
+0   1   System memory
+1   1   Embedded SRAM
+
