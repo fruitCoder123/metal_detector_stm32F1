@@ -1,0 +1,29 @@
+
+stop
+run
+bt          back trace
+info break  info about breakpoints
+info line   info about current line
+watch
+p $pc       program counter
+p $sp       stack pointer
+s = step
+
+To sort out:
+============
+record
+
+Reset target and start fresh:
+=============================
+monitor reset halt
+load
+continue
+
+set break point
+===============
+b main.c:75  <- breakpoint at line 75 in main.c
+
+remove breakpoint
+=================
+delete
+clear       <-- remove breakpoint at current line

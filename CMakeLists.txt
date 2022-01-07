@@ -6,7 +6,7 @@ project(metal_detector_${CMAKE_BUILD_TYPE} C ASM)
 include_directories(software/headers)
 
 # set output folder to put the build output
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/${CMAKE_BUILD_TYPE})
+set(EXE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/${CMAKE_BUILD_TYPE})
 
 include_directories(stmcubemx/inc)
 include_directories(stmcubemx/Drivers/CMSIS/Device/ST/STM32F1xx/Include)
@@ -60,8 +60,8 @@ add_executable(${PROJECT_NAME} ${sources} ${headers})
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME ${PROJECT_NAME}.elf)
 set_target_properties(${PROJECT_NAME} PROPERTIES LINK_FLAGS "-T \"${LINKER_FILE}\"")
 
-set(ELF_FILE ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${PROJECT_NAME}.elf)
-set(SREC_FILE ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${PROJECT_NAME}.srec)
+set(ELF_FILE ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.elf)
+set(SREC_FILE ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.srec)
 
 # Generate S-record file from the GCC build artefact that appears to be ELF format.
 # We need an S-record file which can be flashed in the target.
@@ -70,6 +70,14 @@ add_custom_command(
     POST_BUILD
     COMMAND ${ELF_TOOL} ${ELF_TOOL_ARGUMENTS} ${ELF_FILE} ${SREC_FILE}
     COMMENT "Conversion from ELF format to Srecord format"
+)
+
+# Copy the build result to the bin folder for loading convinience
+add_custom_command(
+    TARGET ${PROJECT_NAME}
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy ${SREC_FILE} ${EXE_OUTPUT_DIRECTORY}
+    COMMENT "Copy build result (S-record file) to bin folder"
 )
 
 # Create ctags file
