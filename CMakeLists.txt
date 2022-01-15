@@ -60,15 +60,15 @@ add_executable(${PROJECT_NAME} ${sources} ${headers})
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME ${PROJECT_NAME}.elf)
 set_target_properties(${PROJECT_NAME} PROPERTIES LINK_FLAGS "-T \"${LINKER_FILE}\"")
 
-set(ELF_FILE ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.elf)
-set(SREC_FILE ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.srec)
+set(ELF_FILE ${PROJECT_NAME}.elf)
+set(SREC_FILE ${PROJECT_NAME}.srec)
 
 # Generate S-record file from the GCC build artefact that appears to be ELF format.
 # We need an S-record file which can be flashed in the target.
 add_custom_command(
     TARGET ${PROJECT_NAME}
     POST_BUILD
-    COMMAND ${ELF_TOOL} ${ELF_TOOL_ARGUMENTS} ${ELF_FILE} ${SREC_FILE}
+    COMMAND ${ELF_TOOL} ${ELF_TOOL_ARGUMENTS} ${PROJECT_BINARY_DIR}/${ELF_FILE} ${PROJECT_BINARY_DIR}/${SREC_FILE}
     COMMENT "Conversion from ELF format to Srecord format"
 )
 
@@ -76,7 +76,7 @@ add_custom_command(
 add_custom_command(
     TARGET ${PROJECT_NAME}
     POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy ${SREC_FILE} ${EXE_OUTPUT_DIRECTORY}
+    COMMAND ${CMAKE_COMMAND} -E copy ${PROJECT_BINARY_DIR}/${SREC_FILE} ${EXE_OUTPUT_DIRECTORY}/${SREC_FILE}
     COMMENT "Copy build result (S-record file) to bin folder"
 )
 
