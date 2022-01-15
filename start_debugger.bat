@@ -1,5 +1,7 @@
 
-set GDB=%GCC_HOME_ARM%\bin\arm-none-eabi-gdb.exe
+set path=%path%;%GCC_HOME_ARM%\bin
+
+set GDB=arm-none-eabi-gdb.exe
 
 call conda.bat activate metal_detector
 
