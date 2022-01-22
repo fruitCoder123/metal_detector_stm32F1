@@ -60,7 +60,7 @@ SET(LINK_FLAGS
   "-specs=nosys.specs"
   "-mfloat-abi=softfp"
   "-Wl,--gc-sections"   # dead code elimination
-
+  "-Xlinker -Map=output.map" 
 )
 string( REPLACE ";" " " LINK_FLAGS "${LINK_FLAGS}" )
 
