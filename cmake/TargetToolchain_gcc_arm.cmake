@@ -26,32 +26,34 @@ set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
 set(CMAKE_FIND_ROOT_PATH_MODE_PACKAGE ONLY)
 
 SET(C_CXX_FLAGS_INIT
-  "-fno-common"         # controls the placement of global variables defined without an initializer
-  "-ffreestanding"      # generate code assuming no operating system
-  "-ffunction-sections" # Place each function item into its own section in the output file
-  "-fdata-sections"     # Place each data item into its own section in the output file
-  "-Wall"               # enables all the warnings about constructions that some users consider questionable
-  "-mcpu=cortex-m3"     # Specify the name of the target processor
-  "-mthumb"             # Select generating code that executes in Thumb states
+  "-fno-common"                 # controls the placement of global variables defined without an initializer
+  "-ffreestanding"              # generate code assuming no operating system
+  "-ffunction-sections"         # Place each function item into its own section in the output file
+  "-fdata-sections"             # Place each data item into its own section in the output file
+  "-Wall"                       # enables all the warnings about constructions that some users consider questionable
+  "-mcpu=cortex-m3"             # Specify the name of the target processor
+  "-mthumb"                     # Select generating code that executes in Thumb states
   "-fno-exceptions"
-  "-Wl,-Map=mapfile.map"
+#  "-Wa,-adhln"                  # Turn listings on, omit debugging directives, omit form processing, incl high level source, include assembly
+  "-fverbose-asm"               # Add context to generated assembly files
+  "-save-temps"                 # Keep the temporarily files (i.e. assembly files)
 #  "-nostdlib"
 )
 string( REPLACE ";" " " C_CXX_FLAGS_INIT "${C_CXX_FLAGS_INIT}" )
 
 SET(C_FLAGS_DEBUG
   "--debug"
-  "-DDEBUG"
-  "-O0"
-  "-g"
+  "-DDEBUG"                     # include preprocessor directive 'DEBUG'
+  "-O0"                         # Turn optimalisations off
+  "-g"                          # produce debugging information
 )
 string( REPLACE ";" " " C_FLAGS_DEBUG "${C_FLAGS_DEBUG}" )
 
 SET(CXX_FLAGS_DEBUG
   "--debug"
-  "-DDEBUG"
-  "-O0"
-  "-g"
+  "-DDEBUG"                     # include preprocessor directive 'DEBUG'
+  "-O0"                         # Turn optimalisations off
+  "-g"                          # produce debugging information
   "-std=c++11"
 )
 string( REPLACE ";" " " CXX_FLAGS_DEBUG "${CXX_FLAGS_DEBUG}" )
@@ -59,8 +61,8 @@ string( REPLACE ";" " " CXX_FLAGS_DEBUG "${CXX_FLAGS_DEBUG}" )
 SET(LINK_FLAGS
   "-specs=nosys.specs"
   "-mfloat-abi=softfp"
-  "-Wl,--gc-sections"   # dead code elimination
-  "-Xlinker -Map=output.map" 
+  "-Wl,--gc-sections"           # dead code elimination
+  "-Xlinker -Map=output.map"    # produce map file
 )
 string( REPLACE ";" " " LINK_FLAGS "${LINK_FLAGS}" )
 
