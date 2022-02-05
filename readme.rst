@@ -1,11 +1,18 @@
 Introduction
 ============
 
-This is a project utilising the black pill board holding a STM32F103C8T6 controller with 64K. The board shall be connected via an ST-Link V2, no external power required.
+This is a project utilising the black pill board holding a **STM32F103C8T6** controller with 64K. The board shall be connected via an ST-Link V2, no external power required.
 The build environment uses conda as package management for certain developent tools and is currently targeted for Windows OS.
 It uses cmake and ninja to create the build environment and to build it.
 
-Conda, GCC for ARM and ST Cube programmer are expected to be installed on your system. Links where to find these packages are provided in the folder 'links'. The paths where these are installed are passed via environment variables: *GCC_HOME_ARM* and *STM32CUBEPROG_PATH*
+The following programs are expected to be installed on your system: (links where to find these packages are provided in the folder 'links')
+
+- Conda
+- GCC for ARM
+- STM32CubeMX
+- STM32CubeProgrammer
+
+The paths where the compiler and the target programmer are installed are passed via environment variables: *GCC_HOME_ARM* and *STM32CUBEPROG_PATH*
 Examples for these:
 
 +------------------------+-----------------------------------------------------------------------------------+
@@ -15,6 +22,13 @@ Examples for these:
 +------------------------+-----------------------------------------------------------------------------------+
 | STM32CUBEPROG_PATH     | C:\\Program Files (x86)\\ST\\STM32CubeProgrammer\\bin                             |
 +------------------------+-----------------------------------------------------------------------------------+
+
+
+Hardware configuration
+----------------------
+
+Hardware configuration is done using STM32CubeMX. The configuration file is in the folder *stmcubemx*
+Open this file in STM32CubeMX and generate the code using the 'generate code' button. The generated code and the ST HAL routines are not part of this repository as they can be generated easily and are not subject to change in the scope of this project.
 
 
 Prepare development environment
