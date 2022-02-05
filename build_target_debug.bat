@@ -2,6 +2,9 @@
 
 pushd %cd%
 
+del /q/s bin
+del /q/s build
+
 call :create_dir_if_not_exist_and_cd_into_it build
 call :create_dir_if_not_exist_and_cd_into_it target
 call :create_dir_if_not_exist_and_cd_into_it debug
