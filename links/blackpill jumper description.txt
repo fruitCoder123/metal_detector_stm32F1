@@ -1,3 +1,6 @@
+
+See Reference manual RM0008 Rev 21 page 60
+
 + position (PCB mask) = Vcc = 1
 - position (PCB mask) = Gnd = 0
 

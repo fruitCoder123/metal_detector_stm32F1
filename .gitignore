@@ -2,6 +2,7 @@ build/*
 bin/*
 tags
 stmcubemx/Drivers/*
+stmcubemx/Middlewares/*
 stmcubemx/Inc/*
 stmcubemx/Src/*
 stmcubemx/.mxproject
