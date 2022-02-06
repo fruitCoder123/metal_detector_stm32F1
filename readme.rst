@@ -5,6 +5,9 @@ This is a project utilising the black pill board holding a **STM32F103C8T6** con
 The build environment uses conda as package management for certain developent tools and is currently targeted for Windows OS.
 It uses cmake and ninja to create the build environment and to build it.
 
+.. image:: https://stm32-base.org/assets/img/boards/STM32F103C8T6_Black_Pill-1.jpg
+  :height: 200px
+
 The following programs are expected to be installed on your system: (links where to find these packages are provided in the folder 'links')
 
 - Conda
@@ -29,7 +32,6 @@ Hardware configuration
 
 Hardware configuration is done using STM32CubeMX. The configuration file is in the folder *stmcubemx*.
 Open this file in STM32CubeMX and generate the code using the 'generate code' button. The generated code and the ST HAL routines are not part of this repository as they can be generated easily and are not subject to change in the scope of this project.
-
 
 Prepare development environment
 -------------------------------
