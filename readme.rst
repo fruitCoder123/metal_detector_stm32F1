@@ -27,7 +27,7 @@ Examples for these:
 Hardware configuration
 ----------------------
 
-Hardware configuration is done using STM32CubeMX. The configuration file is in the folder *stmcubemx*
+Hardware configuration is done using STM32CubeMX. The configuration file is in the folder *stmcubemx*.
 Open this file in STM32CubeMX and generate the code using the 'generate code' button. The generated code and the ST HAL routines are not part of this repository as they can be generated easily and are not subject to change in the scope of this project.
 
 
@@ -73,4 +73,10 @@ Then you start GDB using this batch file:
 .. code:: bash
 
     > start_debugger.bat
+
+Serial debug output
+-------------------
+
+The project uses serial output over USB (using the micro USB port on the board) to output debug info.
+For this to work you need to install a STM32 Virtual COM port driver, find the reference in the links.txt file.
 
