@@ -20,3 +20,15 @@ Test ssh key with github:
 =========================
 https://docs.github.com/en/authentication/connecting-to-github-with-ssh/testing-your-ssh-connection
 
+Restructured text:
+==================
+https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html
+http://rst.ninjs.org/?theme=basic#
+
+STM32F103 documentation:
+========================
+https://www.st.com/en/microcontrollers-microprocessors/stm32f103.html#documentation
+
+STM32 Virtual COM driver:
+=========================
+https://www.st.com/content/my_st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-utilities/stsw-stm32102.license=1644155816563.product=STSW-STM32102.version=1.5.0.html

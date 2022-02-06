@@ -12,23 +12,60 @@ include_directories(stmcubemx/inc)
 include_directories(stmcubemx/Drivers/CMSIS/Device/ST/STM32F1xx/Include)
 include_directories(stmcubemx/Drivers/CMSIS/Include)
 include_directories(stmcubemx/Drivers/STM32F1xx_HAL_Driver/Inc)
+include_directories(stmcubemx/Middlewares/ST/STM32_USB_Device_Library/Core/Inc)
+include_directories(stmcubemx/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc)
 
 set (headers
     stmcubemx/inc/main.h
     stmcubemx/inc/stm32f1xx_hal_conf.h
     stmcubemx/inc/stm32f1xx_it.h
+
+    stmcubemx/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
+    stmcubemx/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h
+    stmcubemx/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h
+    stmcubemx/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h
+    stmcubemx/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h
+    stmcubemx/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h
+    stmcubemx/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h
+    stmcubemx/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h
+
+    stmcubemx/inc/usb_device.h
+    stmcubemx/inc/usbd_cdc_if.h
+    stmcubemx/inc/usbd_conf.h
+    stmcubemx/inc/usbd_desc.h
+
+    stmcubemx/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h
+    stmcubemx/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h
+    stmcubemx/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h
+    stmcubemx/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h
 )
 
 set (sources
     software/sources/main.c
+
     stmcubemx/src/stm32f1xx_hal_msp.c
     stmcubemx/src/stm32f1xx_it.c
     stmcubemx/src/system_stm32f1xx.c
     stmcubemx/startup_stm32f103xb.s
+
     stmcubemx/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c
     stmcubemx/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c
+    stmcubemx/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c
     stmcubemx/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c
     stmcubemx/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c
+    stmcubemx/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd.c
+    stmcubemx/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd_ex.c
+    stmcubemx/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usb.c
+
+    stmcubemx/src/usb_device.c
+    stmcubemx/src/usbd_cdc_if.c
+    stmcubemx/src/usbd_conf.c
+    stmcubemx/src/usbd_desc.c
+
+    stmcubemx/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c
+    stmcubemx/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c
+    stmcubemx/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c
+    stmcubemx/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c
 )
 
 if(CMAKE_BUILD_TYPE MATCHES "Debug")
