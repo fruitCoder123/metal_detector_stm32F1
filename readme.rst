@@ -80,3 +80,9 @@ Serial debug output
 The project uses serial output over USB (using the micro USB port on the board) to output debug info.
 For this to work you need to install a STM32 Virtual COM port driver, find the reference in the links.txt file.
 
+Test set-up used for testing ADC mode
+-------------------------------------
+
+.. image:: documents/images/ADC_test_setup_hardware.jpeg
+
+
