@@ -80,3 +80,14 @@ Serial debug output
 The project uses serial output over USB (using the micro USB port on the board) to output debug info.
 For this to work you need to install a STM32 Virtual COM port driver, find the reference in the links.txt file.
 
+Debugging using SWO
+-------------------
+
+https://www.codeinsideout.com/blog/stm32/add-swo/
+
+If you have a ST-LINK V2 or even an genuine one you might need to wire SWO yourself. One way to do it is to disconnect one of the 5V pins (on the connector from ST-Link V2 towards the target e.g. PA10) and wire it to PB3 (JTDO on black pill layout)
+
+.. image:: documents/images/Wire-SWO-on_ST-LINK-V2.jpeg
+
+.. image:: documents/images/Wire-SWO-on_ST-LINK-V2-connected-to-target.jpeg
+
