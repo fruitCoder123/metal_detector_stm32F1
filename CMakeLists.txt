@@ -28,6 +28,9 @@ set (headers
     stmcubemx/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h
     stmcubemx/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h
     stmcubemx/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h
+    stmcubemx/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc.h
+    stmcubemx/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc_ex.h
+    stmcubemx/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h
 
     stmcubemx/inc/usb_device.h
     stmcubemx/inc/usbd_cdc_if.h
@@ -56,6 +59,9 @@ set (sources
     stmcubemx/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd.c
     stmcubemx/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd_ex.c
     stmcubemx/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usb.c
+    stmcubemx/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c
+    stmcubemx/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.c
+    stmcubemx/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c
 
     stmcubemx/src/usb_device.c
     stmcubemx/src/usbd_cdc_if.c
